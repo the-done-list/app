@@ -8,10 +8,10 @@
     "android": "adb reverse tcp:8081 tcp:8081 & react-native run-android"
   },
   "dependencies": {
-    "npm-parallel": "^2.0.1",
     "react-native": "^0.11.2"
   },
   "devDependencies": {
+    "npm-parallel": "^2.0.1",
     "typescript": "^1.6.2"
   }
 }
