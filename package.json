@@ -3,9 +3,15 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node_modules/react-native/packager/packager.sh"
+    "watch": "parallel watch-typescript android",
+    "watch-typescript": "tsc -w",
+    "android": "react-native run-android"
   },
   "dependencies": {
+    "npm-parallel": "^2.0.1",
     "react-native": "^0.11.2"
+  },
+  "devDependencies": {
+    "typescript": "^1.6.2"
   }
 }
