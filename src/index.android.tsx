@@ -2,7 +2,6 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
 
 import * as React from 'react-native';
 
@@ -13,12 +12,6 @@ var {
   View,
   TextInput
 } = React;
-
-var items = [
-  "First",
-  "Second",
-  "Third"
-]
 
 var app = React.createClass({
   render: function() {
