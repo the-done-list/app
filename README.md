@@ -19,10 +19,10 @@ positive cycle of increased productivity.
 
 React-native is used for the mobile app. To get things running on Android:
 
-1) Follow the [android setup instructions](https://facebook.github.io/react-native/docs/android-setup.html#content)
+1. Follow the [android setup instructions](https://facebook.github.io/react-native/docs/android-setup.html#content)
 
-2) Run `npm install` from this directory
+2. Run `npm install` from this directory
 
-3) Make sure to `export ANDROID_HOME=SDK_PATH`
+3. Make sure to `export ANDROID_HOME=SDK_PATH`
 
-4) Run the emulator or connect a device, and run `npm watch`
+4. Run the emulator or connect a device, and run `npm watch`
