@@ -25,4 +25,6 @@ React-native is used for the mobile app. To get things running on Android:
 
 3. Make sure to `export ANDROID_HOME=SDK_PATH`
 
-4. Run the emulator or connect a device, and run `npm watch`
+4. Run the emulator via `android avd` or connect a device
+
+5. Run `npm watch`
