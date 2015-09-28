@@ -11,21 +11,23 @@ var {
   StyleSheet,
   Text,
   View,
+  TextInput
 } = React;
+
+var items = [
+  "First",
+  "Second",
+  "Third"
+]
 
 var app = React.createClass({
   render: function() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.tsx
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+        <Text style={styles.header}>What did you do?</Text>
+        <View style={styles.input}>
+          <TextInput />
+        </View>
       </View>
     );
   }
@@ -34,20 +36,21 @@ var app = React.createClass({
 var styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    backgroundColor: '#fff',
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
+  input: {
+    fontSize: 15,
+    textAlign: 'left',
     margin: 10,
+    backgroundColor: "#fff"
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  header: {
+    fontSize: 30,
+    textAlign: 'left',
+    margin: 10
+  }
 });
 
 AppRegistry.registerComponent('app', () => app);

@@ -543,6 +543,26 @@ declare namespace __ReactNative {
       style?: TextStyle;
   }
 
+  export interface TextInputProperties {
+    autoCapitalize?: string,
+    autoCorrect?: boolean,
+    autoFocus?: boolean,
+    defaultValue?: string,
+    editable?: boolean,
+    keyboardType?: string,
+    multiline?: boolean,
+    onBlur?: Function,
+    onChange?: Function,
+    onChangeText?: (s:string) => void,
+    onEndEditing?: () => void,
+    onFocus?:() => void,
+    onSubmitEditing?: () => void,
+    secureTextEntry?: boolean,
+    style? : TextStyle,
+    textAlign?: string,
+    value?: string
+  }
+
   export interface AccessibilityTraits
   {
     // TODO
@@ -1319,6 +1339,7 @@ declare namespace __ReactNative {
   export var AsyncStorage: AsyncStorageStatic;
 
   export var Text: ComponentClass<TextProperties>;
+  export var TextInput: ComponentClass<TextInputProperties>
   export var View: ComponentClass<ViewProperties>;
   export var AlertIOS: ComponentClass<AlertIOSProperties>;
   export var SegmentedControlIOS: ComponentClass<SegmentedControlIOSProperties>;
