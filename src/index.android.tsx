@@ -37,9 +37,9 @@ var app = React.createClass({
         <View style={styles.input}>
           <TextInput onChangeText={this.filterRows} />
         </View>
-        <ListView dataSource={this.state.dataSource}
-                  renderRow={row => <Text>{row}</Text>}
-                  style={styles.autocomplete} />
+        <ListView contentContainerStyle={styles.listContainer}
+                  dataSource={this.state.dataSource}
+                  renderRow={row => <Text style={styles.listItem}>{row}</Text>} />
       </View>
     );
   }
@@ -50,22 +50,34 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-start',
     alignItems: 'stretch',
-    backgroundColor: '#fff',
+    //backgroundColor: '#fff',
   },
   input: {
     fontSize: 15,
     textAlign: 'left',
     margin: 10,
-    backgroundColor: "#fff"
+    //backgroundColor: "#fff"
   },
   header: {
-    fontSize: 30,
+    fontSize: 20,
     textAlign: 'left',
     margin: 10
   },
-  autocomplete: {
-
+  listContainer: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  listItem:{
+    backgroundColor: '#ccc',
+    margin: 5,
+    paddingBottom: 8,
+    paddingTop: 8,
+    paddingLeft: 15,
+    paddingRight: 15,
+    width: 100,
+    height: 20
   }
-});
+})
 
 AppRegistry.registerComponent('app', () => app);

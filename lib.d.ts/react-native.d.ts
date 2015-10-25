@@ -521,7 +521,7 @@ declare namespace __ReactNative {
   }
 
   // @see https://facebook.github.io/react-native/docs/text.html#style
-  export interface TextStyle
+  export interface TextStyle extends ViewStyle
   {
     color?: string;
     containerBackgroundColor?: string;
@@ -1335,7 +1335,7 @@ declare namespace __ReactNative {
     removeClippedSubviews?: boolean,
     showsHorizontalScrollIndicator?:boolean,
     showsVerticalScrollIndicator?:boolean,
-    style: StyleSheetProperties
+    style?: StyleSheetProperties
   }
 
   export interface SyntheticEvent<T>
