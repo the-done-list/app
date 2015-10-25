@@ -37,9 +37,12 @@ var app = React.createClass({
         <View style={styles.input}>
           <TextInput onChangeText={this.filterRows} />
         </View>
-        <ListView contentContainerStyle={styles.listContainer}
+        <ListView
+            initialListSize={24}
+            pageSize={24}
+            contentContainerStyle={styles.listContainer}
                   dataSource={this.state.dataSource}
-                  renderRow={row => <Text style={styles.listItem}>{row}</Text>} />
+                  renderRow={row => <View style={styles.listItem}><Text>{row}</Text></View>} />
       </View>
     );
   }
@@ -71,12 +74,12 @@ var styles = StyleSheet.create({
   listItem:{
     backgroundColor: '#ccc',
     margin: 5,
-    paddingBottom: 8,
-    paddingTop: 8,
-    paddingLeft: 15,
-    paddingRight: 15,
+    paddingBottom: 5,
+    paddingTop: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
     width: 100,
-    height: 20
+    height: 30
   }
 })
 
