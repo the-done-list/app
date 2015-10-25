@@ -462,17 +462,41 @@ declare namespace __ReactNative {
     static runApplication(appKey: string, appParameters: any): void;
   }
 
-  /*
-  export interface ReactPropTypes extends React.ReactPropTypes
-  {
 
+  export interface FlexStyle {
+    alignItems?: string; //enum('flex-start', 'flex-end', 'center', 'stretch')
+    alignSelf?: string; //enum('auto', 'flex-start', 'flex-end', 'center', 'stretch')
+    borderBottomWidth?: number
+    borderLeftWidth?: number
+    borderRightWidth?: number
+    borderTopWidth?: number
+    borderWidth?: number
+    bottom?: number
+    flex?: number
+    flexDirection?: string; //enum('row', 'column')
+    flexWrap?: string; //enum('wrap', 'nowrap')
+    height?: number
+    justifyContent?: string; //enum('flex-start', 'flex-end', 'center', 'space-between', 'space-around')
+    left?: number
+    margin?: number
+    marginBottom?: number
+    marginHorizontal?: number
+    marginLeft?: number
+    marginRight?: number
+    marginTop?: number
+    marginVertical?: number
+    padding?: number
+    paddingBottom?: number
+    paddingHorizontal?: number
+    paddingLeft?: number
+    paddingRight?: number
+    paddingTop?: number
+    paddingVertical?: number
+    position?: string; //enum('absolute', 'relative')
+    right?: number
+    top?: number
+    width?: number
   }
-
-  export interface PropTypes
-  {
-    [key:string]: React.Requireable<any>;
-  }
-*/
 
 
   export interface StyleSheetProperties
@@ -510,6 +534,7 @@ declare namespace __ReactNative {
     textAlign?: string; // enum("auto", 'left', 'right', 'center')
     writingDirection?: string; //enum("auto", 'ltr', 'rtl')
   }
+
 
   // https://facebook.github.io/react-native/docs/text.html#props
   export interface TextProperties
@@ -569,7 +594,7 @@ declare namespace __ReactNative {
   }
 
   // @see https://facebook.github.io/react-native/docs/view.html#style
-  export interface ViewStyle
+  export interface ViewStyle extends FlexStyle
   {
     backgroundColor?: string;
     borderBottomColor?: string;
@@ -582,12 +607,23 @@ declare namespace __ReactNative {
     borderTopColor?: string;
     borderTopLeftRadius?: number;
     borderTopRightRadius?: number;
+    borderStyle?: string;
+    borderWidth?:number;
+    borderTopWidth?:number;
+    borderRightWidth?:number;
+    borderBottomWidth?:number;
+    borderLeftWidth?:number;
     opacity?: number;
     overflow?: string; // enum('visible', 'hidden')
     shadowColor?: string;
     shadowOffset?: {width: number, height: number};
     shadowOpacity?: number;
     shadowRadius?: number;
+  }
+
+
+  export interface ListStyle extends ViewStyle {
+
   }
 
   /**
@@ -875,9 +911,19 @@ declare namespace __ReactNative {
   /**
    * @see
    */
-  export interface ListViewProperties
+  export interface ListViewProperties extends ScrollViewProperties
   {
-    /// TODO
+    dataSource: ListViewDataSource,
+    initialListSize?:number,
+    onChangeVisibleRows?: (visibleRows:any[], changedRows:any[]) => void,
+    onEndReached?:Function,
+    onEndReachedThreshold?: number,
+    pageSize?: number,
+    renderFooter?: () => JSX.Element,
+    renderHeader?: () => JSX.Element,
+    renderRow: (row:any) => JSX.Element,
+    renderScrollComponent?: (props:any) => JSX.Element,
+    scrollRenderAheadDistance?:number
   }
 
   /**
@@ -1073,13 +1119,13 @@ declare namespace __ReactNative {
 
   export interface DataSourceAssetCallback
   {
-    rowHasChanged: (r1: any[], r2: any[]) => boolean;
+    rowHasChanged: (r1: any, r2: any) => boolean;
   }
 
   export interface ListViewDataSource
   {
     new(onAsset: DataSourceAssetCallback): ListViewDataSource;
-    cloneWithRows<T>(rowList:T[][]): void;
+    cloneWithRows<T>(rowList:T[], identities?:string[]): ListViewDataSource;
   }
 
   export interface ListViewStatic extends ComponentClass<ListViewProperties>
@@ -1281,7 +1327,15 @@ declare namespace __ReactNative {
 
   export interface ScrollViewProperties
   {
-
+    contentContainerStyle?:ViewStyle,
+    horizontal?:boolean,
+    keyboardDismissMode?: string,
+    keyboardShouldPersistTaps?: boolean,
+    onScroll?: () => void,
+    removeClippedSubviews?: boolean,
+    showsHorizontalScrollIndicator?:boolean,
+    showsVerticalScrollIndicator?:boolean,
+    style: StyleSheetProperties
   }
 
   export interface SyntheticEvent<T>
