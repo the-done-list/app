@@ -8,6 +8,7 @@
     "android": "adb reverse tcp:8081 tcp:8081 & react-native run-android"
   },
   "dependencies": {
+    "bluebird": "^3.0.5",
     "react-native": "^0.13.1"
   },
   "devDependencies": {
